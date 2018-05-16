@@ -31,6 +31,7 @@ public class OrderController {
 	
 	@RequestMapping(value="/saveLocData", method=RequestMethod.POST)
 	public ServiceResponse saveLocData(@RequestBody OrdLocation ordLoc) {
+		System.out.println("Request: "+ordLoc);
 		ServiceResponse response = new ServiceResponse("error", "Unable to save data !", null);
 		if (ordLocService.saveLocationData(ordLoc)) {
 			response.setStatus("success");
