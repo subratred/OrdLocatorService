@@ -24,8 +24,9 @@ public class OrderController {
 	@RequestMapping("/testService")
 	public Map<String, String> testService() {
 		Map<String, String> result = new HashMap<>();
-		result.put("status", "Success");
+		result.put("status", "Success2");
 		result.put("message", "Hello, app is working!");
+		
 		return result;
 	}
 	
@@ -45,4 +46,5 @@ public class OrderController {
 		response = ordLocService.getLocData(orderId);
 		return response;
 	}
+	
 }
