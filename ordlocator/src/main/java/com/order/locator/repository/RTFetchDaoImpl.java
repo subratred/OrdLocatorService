@@ -15,11 +15,20 @@ public class RTFetchDaoImpl {
 	JdbcTemplate jdbcTemplate;
 
 	public Object getTest(String orderId) throws Exception{
-		String query="select TOP 2 id,order_id,lattitude,longitude,lastupdatedon from ordlocation order by ID desc";
+		String query="select TOP 2 id,order_id,lattitude,longitude,lastupdatedon from ordlocation where order_id="+orderId+"order by ID desc";
 		Map<String,Object> data=new HashMap<>();
 		List<Map<String, Object>> output=jdbcTemplate.queryForList(query);
 		data.put("current", output.get(0));
-		data.put("previous", output.get(1));
+
+		return data;
+	}
+	
+	public Object getOrderDetails(String orderId) throws Exception{
+		String query="select * from ordDetails where order_Id="+orderId;
+		Map<String,Object> data=new HashMap<>();
+		List<Map<String, Object>> output=jdbcTemplate.queryForList(query);
+		data.put("productDetails", output.get(0));
+
 		return data;
 	}
 }

@@ -23,4 +23,11 @@ public class RTFetchController {
 		//response = rtFetchService.getLiveCoords(orderId);
 		return rtFetchService.getLiveCoords(orderId);
 	}
+	
+	@RequestMapping("/getOrderDetails")
+	public Object getOrderDetails(@RequestParam("orderid") String orderId) throws Exception {
+		//List<OrdLocation> response = null;
+		//response = rtFetchService.getLiveCoords(orderId);
+		return rtFetchService.getOrderDetails(orderId);
+	}
 }
