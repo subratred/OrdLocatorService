@@ -18,4 +18,12 @@ public class RTFetchService {
 			return rtFetchDaoImpl.getTest(orderId);
 		}
 	}
+	
+	public Object getOrderDetails(String orderId) throws Exception {
+		if (orderId != null && !orderId.isEmpty()) {
+			return rtFetchDaoImpl.getOrderDetails(orderId);
+		} else {
+			return rtFetchDaoImpl.getOrderDetails(orderId);
+		}
+	}
 }
